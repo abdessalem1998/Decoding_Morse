@@ -12,3 +12,13 @@ def decode_char(cha)
     return key.to_s if cha == value
   end
 end
+
+def decode_word(word)
+  word.split.map { |string| decode_char(string) }.join
+end
+
+def decode(msg)
+  msg.split('   ').map { |word| decode_word(word) }.join(' ')
+end
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
